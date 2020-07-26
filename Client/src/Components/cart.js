@@ -34,11 +34,6 @@ function Cart() {
             <STotal>Total</STotal>
           </SPriceWrapper>
         </StyledHeaders>
-        {/* {user.isLoggedIn === true ? (
-        <div>Hello {user.name}</div>
-      ) : (
-        <div>Hello guest user </div>
-      )} */}
         <StyledProductWrapper>
           {products_in_cart &&
             products_in_cart.map(({ name, price, qty }, index) => (
@@ -78,10 +73,10 @@ const SH1 = styled.h1`
   margin-bottom: 5rem;
   font-size: 4rem;
   font-weight: 600;
+  /* border: solid green 3px; */
 `;
 
 const StyledCardWrapper = styled.div`
-  /* border: solid green 3px; */
   /* display: flex;
   align-items: center; */
 `;
@@ -90,37 +85,29 @@ const StyledHeaders = styled.div`
   display: flex;
   border-bottom: 1px solid lightgrey;
   font-family: Montserrat, sans-serif;
-  padding-right: 20px;
+  /* border: darkgoldenrod solid 6px; */
+  /* height: 100px; */
 `;
-const SProduct = styled.p`
-  /* display: flex;
-  flex-basis: 50%;
-  justify-content: center; */
+const SProduct = styled.div`
+  /* border: solid darkgreen 1px; */
   flex-grow: 1;
   /* text-align: center; */
-  margin-left: 25%;
 `;
-const SQuantity = styled.p`
-  /* display: flex;
-  flex-basis: 15%;
-  justify-content: center; */
-  flex-grow: 1;
+const SQuantity = styled.div`
   text-align: center;
+  /* border: darkorchid solid 2px; */
+  flex-grow: 1;
 `;
 
-const STotal = styled.p`
-  /* display: flex; */
-  /* flex-basis: 15%; */
-  /* justify-content: center; */
-  flex-grow: 1.3;
+const STotal = styled.div`
   text-align: center;
+  /* border: darkkhaki solid 2px; */
+  flex-grow: 1;
 `;
-const SPrice = styled.p`
-  /* display: flex; */
-  /* flex-basis: 20%; */
-  /* justify-content: center; */
-  flex-grow: 1.3;
+const SPrice = styled.div`
   text-align: center;
+  /* border: blue solid 2px; */
+  flex-grow: 1;
 `;
 
 const StyledAddBtn = styled.button`
@@ -140,14 +127,19 @@ const STotalCart = styled.p`
 `;
 
 const SProductWrapper = styled.div`
-  /* border: pink solid 2px; */
+  /* border: pink solid 6px; */
   display: flex;
-  flex-grow: 1.7;
+  /* align-items: center; */
+  flex-grow: 1;
+  padding-left: 170px;
+  padding-right: 130px;
+  /* justify-content: center; */
 `;
 const SPriceWrapper = styled.div`
-  /* border: deeppink solid 2px; */
+  /* border: deeppink solid 5px; */
   display: flex;
   flex-grow: 1;
+  align-items: center;
 `;
 
 const SLink = styled(Link)`

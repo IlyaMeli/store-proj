@@ -28,7 +28,7 @@ const Register = () => {
       setSessionToken(token);
 
       dispatch(setUser(user));
-      e.target.reset();
+      // e.target.reset();
 
       await history.push("/account");
     } catch (error) {

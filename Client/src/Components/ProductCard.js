@@ -67,6 +67,8 @@ const StyledName = styled.div`
   /* border: green 2px solid; */
   padding: 5px;
   font-size: 1.2rem;
+  width: 8rem;
+  
 `;
 const StyledPrice = styled.div`
   /* border: black 2px solid; */
@@ -75,7 +77,7 @@ const StyledPrice = styled.div`
 `;
 
 const StyledImgName = styled.div`
-  /* border: Orange 2px solid; */
+  /* border: Orange 6px solid; */
   display: flex;
   flex-grow: 1;
   font-weight: 600;
