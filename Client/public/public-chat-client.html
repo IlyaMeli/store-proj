@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>HR Rep Interface</title>
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/normalize/3.0.1/normalize.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="http://localhost:3000/primus/primus.js"
+    ></script>
+    <style>
+      body {
+        padding: 50px;
+        font-weight: 400;
+      }
+      h1 {
+        color: #ef2853;
+      }
+      h3 {
+        color: #37a1a3;
+        font-weight: 300;
+      }
+      .write-form {
+        display: flex;
+        flex-direction: column;
+        background: white;
+        padding: 15px;
+        justify-content: center;
+        border: 2px solid white;
+        outline: 2px dashed rgb(99, 204, 206, 0.5);
+        outline-offset: -10px;
+      }
+      .bottom-box {
+        display: flex;
+      }
+      .output {
+        border: solid 1px rgb(239, 40, 83, 0.3);
+
+        /* border-radius: 5px; */
+        flex-basis: 200px;
+        padding: 10px;
+        margin: 0 0 8px;
+      }
+      .input {
+        flex: 1 1;
+        height: 28px;
+        font-size: 16px;
+        /* border-radius: 5px; */
+        border: solid 1px rgb(239, 40, 83, 0.3);
+
+        padding-left: 10px;
+      }
+      button {
+        /* border-radius: 5px; */
+        border: 0;
+        background: #ef2853;
+        color: white;
+        padding: 6px;
+        margin-left: 5px;
+      }
+
+      button:hover {
+        cursor: pointer;
+        background: #ff6684;
+        border: solid 2px white;
+        color: black;
+        border: solid black 1px;
+      }
+      form {
+        width: 50vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        box-shadow: 0px 0px 23px -5px rgba(0, 0, 0, 0.25);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="write-form">
+      <h1>Human Resources Representative Interface</h1>
+      <h3>Start Chatting with the candidate on the other tab...</h3>
+      <textarea class="output" readonly></textarea>
+      <div class="bottom-box">
+        <input placeholder="write a message..." class="input" />
+        <button type="submit">Send</button>
+      </div>
+    </form>
+    <script>
+      const $ = (selector, parent = document) => parent.querySelector(selector);
+      const $$ = (selector, parent = document) =>
+        parent.querySelectorAll(selector);
+
+      const output = $(".output");
+      const input = $(".input");
+      const write_form = $(".write-form");
+
+      // Tell primus to create a new connect to the current domain/port/protocol
+      const primus = new Primus();
+      // Listen for incoming data and log it in our textarea.
+      primus.on("data", (data) => (output.value += `${data}\n`));
+
+      // Listen for submits of the form so we can send the message to the server.
+      write_form.onsubmit = (event) => {
+        // Write the typed message.
+        primus.write(
+          `${new Date().toLocaleTimeString()}- HR-Rep: \n ${input.value}`
+        );
+        input.value = "";
+        event.preventDefault();
+      };
+    </script>
+  </body>
+</html>
