@@ -11,7 +11,7 @@ function Cart() {
     (state) => state.products
   );
   const dispatch = useDispatch();
-  console.log("commit from Cart Component")
+
 
   if (products_in_cart.length === 0) {
     return (
