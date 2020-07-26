@@ -110,7 +110,7 @@
       write_form.onsubmit = (event) => {
         // Write the typed message.
         primus.write(
-          `${new Date().toLocaleTimeString()}- HR-Rep: \n ${input.value}`
+          `${new Date().toLocaleTimeString()}- HR-Rep: ${input.value}`
         );
         input.value = "";
         event.preventDefault();
