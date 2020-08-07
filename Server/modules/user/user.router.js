@@ -109,7 +109,6 @@ router.post(
     if (error) return res.status(400).json(error.details[0].message);
 
     let user = await user_model.findOne({ user_name: req.body.user_name });
-    // .select(`user_name name email`);
 
     if (!user) return res.status(400).json("User not found.");
 
@@ -145,6 +144,29 @@ router.get(
 
     if (!user) return res.status(404).json({ status: "No user found." });
     res.status(200).json(user);
+  })
+);
+
+// updates user purchased item
+router.post(
+  "/update-purchased-items",
+  raw(async (req, res) => {
+    let user = await user_model.findOne({ user_name: req.body.user_name });
+    if (!user) return res.status(400).json("User not found.");
+
+    const update = {
+      user_purchased_items: [
+        // ...user.user_purchased_items,
+        ...req.body.user_purchased_items,
+      ],
+    };
+    await user_model.findOneAndUpdate(
+      { user_name: req.body.user_name },
+      update
+    );
+    console.log(user);
+
+    res.status(200).json("user purchased items updated");
   })
 );
 

@@ -10,6 +10,7 @@ const Dummy = {
   id: "id",
   isLoggedIn: false,
   pic: "./images/profile_pic/dummy_profile.png",
+  user_purchased_items: [],
 };
 
 export const userSlice = createSlice({
@@ -24,6 +25,7 @@ export const userSlice = createSlice({
       state.id = action.payload._id;
       state.isLoggedIn = true;
       state.pic = "./images/profile_pic/prof-pic.jpg";
+      state.user_purchased_items = action.payload.user_purchased_items;
     },
     printUser: (state) => {
       console.log({ state });
@@ -33,9 +35,27 @@ export const userSlice = createSlice({
       removeSessionToken();
       return Dummy;
     },
+    add_to_user_purchased: (state, action) => {
+      console.log(action.payload);
+
+      const product = action.payload.forEach((currentProduct, index) => {
+        const foundProduct = state.user_purchased_items.find((product) => {
+          debugger;
+          return product.name === currentProduct.name;
+        });
+        if (!foundProduct) {
+          state.user_purchased_items.push(currentProduct);
+        }
+      });
+    },
   },
 });
 
-export const { setUser, printUser, logOut } = userSlice.actions;
+export const {
+  setUser,
+  printUser,
+  logOut,
+  add_to_user_purchased,
+} = userSlice.actions;
 
 export default userSlice.reducer;

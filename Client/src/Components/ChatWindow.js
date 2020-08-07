@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+// import RepChatWindow from "./Components/RepChatWindow";
 
 const ChatWindow = () => {
   const [primus, setPrimus] = useState(null);
@@ -48,14 +50,12 @@ const ChatWindow = () => {
               <br />
               open the HR Representative chat interface
               <br />
-              <br />
-              <br />
               <SChatLink
-                href="http://localhost:3000/public-chat-client.html"
+                to="/RepChatWindow"
                 target="_blank"
-                rel="noopener noreferrer"
+                // rel="noopener noreferrer"
               >
-                http://localhost:3000/public-chat-client.html
+                RepChatWindow
               </SChatLink>
             </SSubTitle>
           </SSubTitleWrapper>
@@ -259,7 +259,7 @@ const SSubTitleWrapper = styled.div`
   /* border: solid blue 2px; */
 `;
 
-const SChatLink = styled.a`
+const SChatLink = styled(Link)`
   color: #63ccce;
   font-weight: 300;
   /* border: solid blue 2px; */

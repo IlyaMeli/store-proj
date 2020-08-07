@@ -15,6 +15,7 @@ import DynaminProduct from "./Components/dynamicProduct";
 import { CalcCartTtoal } from "./state/product.slice";
 
 import ChatWindow from "./Components/ChatWindow";
+import RepChatWindow from "./Components/RepChatWindow";
 
 import {
   BrowserRouter as Router,
@@ -53,6 +54,7 @@ function App() {
           <Route path="/reg-user" component={Register} />
           <Route path="/login-user" component={Login} />
           <Route path="/dynamicProduct" component={DynaminProduct} />
+          <Route path="/RepChatWindow" component={RepChatWindow} />
         </Switch>
         <ChatWindow />
         <Footer />

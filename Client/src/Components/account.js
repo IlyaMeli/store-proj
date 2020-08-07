@@ -8,7 +8,9 @@ import { reset_slice as reset_product_slice } from "../state/product.slice";
 
 function Account() {
   const dispatch = useDispatch();
-  const { pic, user_name } = useSelector((state) => state.user);
+  const { pic, user_name, user_purchased_items } = useSelector(
+    (state) => state.user
+  );
   const { purchased_products } = useSelector((state) => state.products);
 
   const onLogOut = () => {
@@ -25,7 +27,7 @@ function Account() {
           <StyledLogout onClick={onLogOut}>Logout</StyledLogout>
         </Link>
       </StyledWrapper>
-      <SPurchased>{purchased_products && <PurchsedProduct />}</SPurchased>
+      <SPurchased>{user_purchased_items && <PurchsedProduct />}</SPurchased>
     </StyledMainWrapper>
   );
 }
