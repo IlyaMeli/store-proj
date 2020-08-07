@@ -17,14 +17,14 @@ function Cart() {
   const buy_items = async () => {
     // update user purchased array in user slice
     dispatch(add_to_purchased());
-    if (user.name != "User") {
-      //updates view in the account view component
-      dispatch(add_to_user_purchased(products_in_cart));
+
+    if (user.name !== "User") {
+      await dispatch(add_to_user_purchased(products_in_cart));
       //update user purchased array in database
       const cont = await updateUserPurchased(user);
       if (cont) dispatch(clean_purchased());
     }
-    dispatch(clean_purchased());
+    // dispatch(clean_purchased());
   };
 
   if (products_in_cart.length === 0) {

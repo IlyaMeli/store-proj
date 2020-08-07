@@ -11,7 +11,7 @@ function Account() {
   const { pic, user_name, user_purchased_items } = useSelector(
     (state) => state.user
   );
-  const { purchased_products } = useSelector((state) => state.products);
+  // const { purchased_products } = useSelector((state) => state.products);
 
   const onLogOut = () => {
     dispatch(logOut());

@@ -43,7 +43,7 @@ export async function registerCall({ name, email, user_name, password }) {
 }
 
 export async function updateUserPurchased({ user_purchased_items, user_name }) {
-  // console.log({ user_purchased_items });
+  console.log("from updateUserPurchased", user_purchased_items);
   const response = await fetch("/api/users/update-purchased-items", {
     method: "POST",
     mode: "cors",

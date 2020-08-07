@@ -1,5 +1,37 @@
-[{"name":"Dianemarie","user_name":"dlafford0","email":"dellaway0@jigsy.com","password":"LJ5Ku4ck0"},
-{"name":"Mirella","user_name":"mparrin1","email":"mvanyukov1@quantcast.com","password":"gjD9M7O"},
-{"name":"Ford","user_name":"fmariault2","email":"foneal2@stumbleupon.com","password":"1Hnxaq"},
-{"name":"Richard","user_name":"rbrewin3","email":"rbroose3@free.fr","password":"N8R7w7vb"}
+[
+  {
+    "name": "Dianemarie",
+    "user_name": "dlafford0",
+    "email": "dellaway0@jigsy.com",
+    "password": "LJ5Ku4ck0",
+    "user_purchased_items": []
+  },
+  {
+    "name": "test",
+    "user_name": "test",
+    "email": "test@test.com",
+    "password": "test",
+    "user_purchased_items": []
+  },
+  {
+    "name": "Mirella",
+    "user_name": "mparrin1",
+    "email": "mvanyukov1@quantcast.com",
+    "password": "gjD9M7O",
+    "user_purchased_items": []
+  },
+  {
+    "name": "Ford",
+    "user_name": "fmariault2",
+    "email": "foneal2@stumbleupon.com",
+    "password": "1Hnxaq",
+    "user_purchased_items": []
+  },
+  {
+    "name": "Richard",
+    "user_name": "rbrewin3",
+    "email": "rbroose3@free.fr",
+    "password": "N8R7w7vb",
+    "user_purchased_items": []
+  }
 ]

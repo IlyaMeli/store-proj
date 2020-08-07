@@ -151,20 +151,23 @@ router.get(
 router.post(
   "/update-purchased-items",
   raw(async (req, res) => {
+    // console.log("server: ", [...req.body.user_purchased_items]);
     let user = await user_model.findOne({ user_name: req.body.user_name });
     if (!user) return res.status(400).json("User not found.");
 
+    const toUpdate = req.body.user_purchased_items;
+    console.log("toUpdate: ", toUpdate);
+
     const update = {
-      user_purchased_items: [
-        // ...user.user_purchased_items,
-        ...req.body.user_purchased_items,
-      ],
+      user_purchased_items: req.body.user_purchased_items,
     };
+    console.log("Update: ", update, " ennnnnnnnnnnnnddddd");
+
     await user_model.findOneAndUpdate(
       { user_name: req.body.user_name },
       update
     );
-    console.log(user);
+    console.log("user purchased items updated", user);
 
     res.status(200).json("user purchased items updated");
   })

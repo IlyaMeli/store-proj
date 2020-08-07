@@ -36,11 +36,10 @@ export const userSlice = createSlice({
       return Dummy;
     },
     add_to_user_purchased: (state, action) => {
-      console.log(action.payload);
+      console.log("action.payload userSlice ", action.payload);
 
       const product = action.payload.forEach((currentProduct, index) => {
         const foundProduct = state.user_purchased_items.find((product) => {
-          debugger;
           return product.name === currentProduct.name;
         });
         if (!foundProduct) {

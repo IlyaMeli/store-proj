@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 const PurchsedProducts = () => {
   // const { purchased_products } = useSelector((state) => state.products);
   const { user_purchased_items } = useSelector((state) => state.user);
-  console.log(user_purchased_items);
+
   return (
     <StyledPurchsedProduct>
       {user_purchased_items.length !== 0 ? (
